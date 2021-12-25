@@ -1,7 +1,7 @@
-function Home() {
+function Home(props) {
   return (
     <div>
-      <p>Home Component</p>
+      <h3>{props.name} Component</h3>
     </div>
   );
 }
