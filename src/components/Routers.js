@@ -3,7 +3,7 @@ import Home from "./Home";
 import About from "./About";
 import Posts from "./Posts";
 import NotFound from "./NotFound";
-// import Post from "./components/Post";
+import Post from "./Post";
 
 function Routers() {
   return (
@@ -11,7 +11,11 @@ function Routers() {
       <Route path="/" exact>
         <Redirect to="/home" />
       </Route>
-      <Route path="/home" render={() => <Home name="Home" />} />
+      <Route
+        path="/home"
+        render={(routerConfig) => <Home name="Home" {...routerConfig} />}
+      />
+      <Route path="/posts/:id" component={Post} />
       <Route path="/about" component={About} />
       <Route path="/posts" component={Posts} />
       <Route path="*" component={NotFound} />

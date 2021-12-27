@@ -125,9 +125,12 @@ class Posts extends Component {
 
   render() {
     // console.log("render");
+    const { history } = this.props;
     return (
       <>
         <h2>Posts Application</h2>
+        <button onClick={() => history.goBack()}>Go Back</button>
+        <button onClick={() => history.goForward()}>Go Forward</button>
         <Form onSubmit={this.handleSubmit}>
           {this.state.id && (
             <>
@@ -246,6 +249,12 @@ class Posts extends Component {
                   <td>{post.title}</td>
                   <td>{post.body}</td>
                   <td>
+                    <Button
+                      variant="warning"
+                      onClick={() => history.push(`/posts/${post.id}`)}
+                    >
+                      view
+                    </Button>
                     <Button
                       //className="btn-primary"
                       onClick={() => this.editPosts(post)}

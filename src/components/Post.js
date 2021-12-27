@@ -1,7 +1,7 @@
-function Post() {
+function Post({ match: { params } }) {
   return (
     <div>
-      <p>Post Component</p>
+      <p>Post {params.id}</p>
     </div>
   );
 }
